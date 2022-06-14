@@ -35,7 +35,7 @@ n="${#cmds[@]}"
 ownname="$(basename "${BASH_SOURCE[0]}")"
 layout="$(cd "$(dirname "${BASH_SOURCE[0]}")/.."; pwd -P)/layouts/${ownname%\.sh}.json"
 
-call="workspace $workspace; append_layout $layout;"
+call="workspace --no-auto-back-and-forth $workspace; append_layout $layout;"
 for ((i=0;i<$n;i++)) ; do
     call="$call exec --no-startup-id ${cmds[$i]};"
 done
