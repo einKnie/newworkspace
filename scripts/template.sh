@@ -40,6 +40,7 @@ declare -a names
 
 # the workspace name
 workspace=""
+call=""
 
 # adapt to workspace-specific needs.
 # define as many windows as needed.
@@ -61,11 +62,15 @@ cmds[3]="urxvt -name bash -e bash -c \"bash\""
 n="${#cmds[@]}"
 ownname="$(basename "${BASH_SOURCE[0]}")"
 layout="$(cd "$(dirname "${BASH_SOURCE[0]}")/.."; pwd -P)/layouts/${ownname%\.sh}.json"
+ws_id=$(i3-msg -t get_workspaces | jq --arg nm "$workspace" '.[] | select(.name == $nm).id')
 
-call="workspace --no-auto-back-and-forth $workspace; append_layout $layout;"
-for ((i=0;i<$n;i++)) ; do
-    call="$call exec --no-startup-id ${cmds[$i]};"
-done
+if [ "$ws_id" == "" ] ;then
+    call="workspace --no-auto-back-and-forth $workspace; append_layout $layout;"
+    for ((i=0;i<$n;i++)) ; do
+        call="$call exec --no-startup-id ${cmds[$i]};"
+    done
+else
+    call="workspace --no-auto-back-and-forth $workspace;"
+fi
 
 echo "opening $n windows on workspace $workspace from layout $layout"
-#exit 0
