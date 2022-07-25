@@ -15,11 +15,20 @@ The workspace configuration consists of two files
 
 A script- and corresponding layout-file **must have the same name**.
 
-The **layout file** can be generated with [i3-save-tree](https://i3wm.org/docs/layout-saving.html), but will need manual adaptations.  
+### layout
+
+The **layout file** can be generated with [i3-save-tree](https://i3wm.org/docs/layout-saving.html), but will need some manual adaptations.
+This is well documented in the [i3 documentation](https://i3wm.org/docs/layout-saving.html#_saving_the_layout).
+
 In short, the 'swallows' sections in your *layout*.json must match the x values provided by the programs you want to start. Check those values with `xprop`.
 
-For the **script file**, it is recommended to copy the provided [*scripts/template.sh*](scripts/template.sh) and go on from there. The template also contains detailed instructions.  
+### script
+
+For the **script file**, it is recommended to copy the provided [*scripts/template.sh*](scripts/template.sh) and change the *config* section to your likings.
+The template also contains detailed instructions.
+
 In short, just set the *workspace* variable to the desired workspace name and adapt the *cmds* array to the commands you need to start your programs.
+
 
 Once you have a *script* and *layout* file, you can start your workspace by calling
 ```
