@@ -13,10 +13,14 @@ print_help() {
     echo "usage:"
     echo "> $(basename "$0") <config>"
     echo
-    echo "available configs in $layoutpath:"
+    echo "available configs in $scriptpath:"
     for script in $(ls $scriptpath/*.sh) ; do
         name="$(basename "$script")"
-        echo -e "\t${name%\.sh}"
+        if [ -f  "${layoutpath}/${name%\.sh}.json" ]; then
+            echo -e "\t${name%\.sh}"
+        else
+            echo -e "\t${name%\.sh} (invalid: layout missing)"
+        fi
     done
 }
 
