@@ -1,4 +1,4 @@
-# This produces something like: 
+# This produces something like:
 # ________________________________
 # |              |                |
 # |              |    htop        |
@@ -10,9 +10,7 @@
 # |              |    bash        |
 # |______________|________________|
 #
-
 declare -a cmds
-declare -a names
 
 #########################
 # start of config
@@ -51,7 +49,7 @@ else
     #   * exists but is empty
     # -> switch to it and populate
     call="workspace --no-auto-back-and-forth $workspace; append_layout $layout;"
-    for ((i=0;i<$n;i++)) ; do
+    for ((i=0;i<n;i++)) ; do
         call="$call exec --no-startup-id ${cmds[$i]};"
     done
 fi

@@ -23,7 +23,7 @@ print_help() {
 # $1 should be a config name, e.g. monitoring -> scripts/monitoring.sh, layouts/monitoring.json
 err=0
 [ -z "$1" ] && { print_help; exit 1; }
-[ -f "${scriptpath}/${1}.sh" ] || { echo "error: ${1}.sh not found."; ((err++)); }
+[ -f "${scriptpath}/${1}.sh"   ] || { echo "error: ${1}.sh not found.";   ((err++)); }
 [ -f "${layoutpath}/${1}.json" ] || { echo "error: ${1}.json not found."; ((err++)); }
 [ $err -gt 0 ] && { print_help; exit 1; }
 
