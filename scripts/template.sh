@@ -12,7 +12,7 @@
 # HOWTO: Create a layout file
 # Create your desired layout an a workspace, e.g. 3
 # then, from any ws, call 
-# 'i3-save-tree --workspace $workspace > layouts/$name.json'
+# 'i3-save-tree --workspace 3 > layouts/$name.json'
 # This saves the basic window configuration, but
 # you need to adapt the 'swallows' section of each node.
 # https://i3wm.org/docs/layout-saving.html#EditingLayoutFiles
@@ -39,10 +39,9 @@ declare -a cmds
 
 # the workspace name
 workspace=""
-call=""
 
 # adapt to workspace-specific needs.
-# define as many windows as needed.
+# define as many windows as needed. (next one would be cmds[4])
 # just make sure the settings in the 'swallows' part
 # of the layout file match the started programs
 # (check with xprop)
