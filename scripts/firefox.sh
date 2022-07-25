@@ -24,8 +24,9 @@ declare -a cmds
 workspace="firefox"
 
 # commands
-cmds[0]="firefox --new-window "https://reddit.com""
-cmds[1]="firefox --new-window "https://youtube.com""
+# i start the firefoxes in background in the hopes of speeding the loading up a bit
+cmds[0]="firefox --new-window "https://reddit.com"&"
+cmds[1]="firefox --new-window "https://youtube.com"&"
 cmds[2]="urxvt -name bash -e bash -c \"bash\""
 
 #########################
