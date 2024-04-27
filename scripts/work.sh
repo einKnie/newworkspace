@@ -1,6 +1,6 @@
 # This is a script file for a common work ws
-# 
-# This template produces something like: 
+#
+# This template produces something like:
 # ________________________________
 # |              |                |
 # |              |    bash        |
